@@ -1,0 +1,67 @@
+{
+  "baseline_green": true,
+  "mutations": [
+    {
+      "bug_reintroduced": "positional lags (row shift instead of calendar date)",
+      "file": "src/features.py",
+      "suite_detects_it": true,
+      "pytest_tail": "FAILED tests/test_feature_alignment.py::test_lags_match_calendar_reference_with_and_without_gaps | !!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!! | 1 failed, 4 passed in 5.80s"
+    },
+    {
+      "bug_reintroduced": "future leakage in lags (looks forward in time)",
+      "file": "src/features.py",
+      "suite_detects_it": true,
+      "pytest_tail": "FAILED tests/test_feature_alignment.py::test_lags_match_calendar_reference_with_and_without_gaps | !!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!! | 1 failed, 4 passed in 5.06s"
+    },
+    {
+      "bug_reintroduced": "partial rolling windows (missing weeks silently ignored)",
+      "file": "src/features.py",
+      "suite_detects_it": true,
+      "pytest_tail": "FAILED tests/test_feature_alignment.py::test_rolling_windows_are_calendar_based_and_nan_when_a_week_is_missing | !!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!! | 1 failed, 6 passed in 7.29s"
+    },
+    {
+      "bug_reintroduced": "positional forecast target",
+      "file": "src/features.py",
+      "suite_detects_it": true,
+      "pytest_tail": "FAILED tests/test_feature_alignment.py::test_target_is_calendar_aligned_and_nan_if_any_horizon_week_missing | !!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!! | 1 failed, 7 passed in 6.50s"
+    },
+    {
+      "bug_reintroduced": "duplicate ward-weeks accepted",
+      "file": "src/features.py",
+      "suite_detects_it": true,
+      "pytest_tail": "FAILED tests/test_feature_alignment.py::test_duplicate_ward_week_records_are_rejected | !!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!! | 1 failed, 9 passed in 6.65s"
+    },
+    {
+      "bug_reintroduced": "duplicate check removed from value_at_offset too",
+      "file": "src/features.py",
+      "suite_detects_it": true,
+      "pytest_tail": "FAILED tests/test_feature_alignment.py::test_duplicate_ward_week_records_are_rejected | !!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!! | 1 failed, 9 passed in 7.33s"
+    },
+    {
+      "bug_reintroduced": "interval no longer contains the point forecast (calibration module)",
+      "file": "src/calibration.py",
+      "suite_detects_it": true,
+      "pytest_tail": "FAILED tests/test_pipeline.py::test_predictions_valid_and_fast - assert (np.F... | !!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!! | 1 failed, 18 passed in 9.38s"
+    },
+    {
+      "bug_reintroduced": "interval no longer contains the point forecast (batch inference)",
+      "file": "src/predict.py",
+      "suite_detects_it": true,
+      "pytest_tail": "FAILED tests/test_pipeline.py::test_predictions_valid_and_fast - assert (np.F... | !!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!! | 1 failed, 18 passed in 10.88s"
+    },
+    {
+      "bug_reintroduced": "escalation ignores the false-alarm budget",
+      "file": "src/calibration.py",
+      "suite_detects_it": true,
+      "pytest_tail": "FAILED tests/test_risk_calibration.py::test_escalation_respects_false_alarm_caps_and_is_ordered | !!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!! | 1 failed, 27 passed in 9.65s"
+    },
+    {
+      "bug_reintroduced": "calibration folds leak into the test period",
+      "file": "src/calibration.py",
+      "suite_detects_it": true,
+      "pytest_tail": "FAILED tests/test_risk_calibration.py::test_oof_calibration_never_touches_the_test_period | !!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!! | 1 failed, 29 passed in 10.41s"
+    }
+  ],
+  "detected": 10,
+  "total": 10
+}

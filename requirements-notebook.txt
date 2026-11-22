@@ -1,0 +1,8 @@
+-r requirements.txt
+jupyter>=1.0
+nbconvert>=7.0
+ipykernel>=6.0
+matplotlib>=3.7
+seaborn>=0.12
+# optional: adds XGBoost to the model comparison table (not needed to run the app)
+# xgboost>=2.0
